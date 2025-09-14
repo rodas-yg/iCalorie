@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head><title>body fat</title>
+  <style>
+h1 {
+  color: purple;
+}
+
+#lang {
+  text-align: right;
+  padding-right: 30px;
+  word-spacing: 15px;
+}
+
+.textbox {
+  width: 40px;
+  /position: absolute;
+  /left: 50%;
+}
+.textboxr {
+  width: 70px;
+  /position: absolute;
+  /left: 60%;
+}
+.textboxw {
+  width: 70px;
+  /position: absolute;
+ /left: 40%;
+}
+
+
+
+
+  </style>
+  </head>
+  <body>
+    
+    <h1>Body fat calculator</h1>
+    <body>
+      <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=266693437295550&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+      
+      <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false"
+    data-auto-logout-link="false" data-use-continue-as="true"></div><br><br>
+      
+      <form>
+       <label for="weight">Weight</label> <input class="textbox" name="weight" type="number" id="weight"> kg <br><br>
+      </form>
+        Height <input class="textbox" type="number" id="height"> cm <br><br>
+      Waist <input class="textbox" type="number" id="waist"> cm <br><br>
+      
+        Age <input class="textbox" type="number" id="age"> years <br><br>
+      <input type="radio" name="gender" value="ali" onchange="sexcm();ali();calc();" > Ali<br><br>
+      <input type="radio" name="gender" value="kirsten" onchange="sexcm();kirsten();calc();" > Kirsten<br><br>
+        Sex 
+        
+       
+        <input type="radio" name="gender" value="male" onchange="sexcm();calc();" > Male 
+          <input type="radio" name="gender" id="sex" value="female" onchange="sexcf();calc();"> Female 
+        <br><br>
+      <input type = "button"
+                     id = "calc"
+                     value = "Calculate" onclick="calc()" /> 
+          <input type = "button"
+                     id = "reset"
+                     value = "Reset" onclick="reset()" /> <br><br>
+      <label>Waist-to-Height Ratio (WHtR)</label>
+              <input class="textbox" type = "number"
+                     id = "whtr"
+                     value = "0" /> %   (ideal 45.8% for men)<br><br>
+      <label>Body Fat</label>
+              <input class="textbox" type = "number"
+                     id = "bodyfat"
+                     value = "0" /> %<br><br>
+      <label>Lean Body Mass</label>
+              <input class="textbox" type = "number"
+                     id = "leanbodymass"
+                     value = "0" /> kg<br><br>
+      
+      <label>Basal Metabolic Rate (BMR)</label>
+              <input class="textbox" type = "number"
+                     id = "bmr"
+                     value = "0" /> kcals/day<br><br>
+      <label>Willoughby Athlete Weight</label>
+              <input class="textbox" type ="number"
+                     id = "waw"
+                     value = "0"/> kg <br><br>
+    
+  </body>
+  <script>
+    
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{266693437295550}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{266693437295550}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+var waist = document.getElementById("waist");
+var height = document.getElementById("height");
+var waist = document.getElementById("waist");
+var age = document.getElementById("age");
+var waistv = (waist.value/2.54);
+var weightv = (weight.value/0.453592);
+var heightv = (height.value/2.54);
+var agev = (age.valuinRepse);
+var sex=1;
+var inReps= document.getElementById("inReps");
+var inWeightLifted= document.getElementById("inWeightLifted");
+function reset() {
+   waist.value = null;
+   weight.value = null;
+   height.value = null;
+   age.value = null;
+}
+function sexcm() {
+  sex=0;
+  return;
+}
+function sexcf() {
+  sex=1;
+  return;
+}
+function ali() {
+  sex=0;
+  var height = document.getElementById("height");
+  var age = document.getElementById("age");
+  height.value = 167;
+  age.value = 30;
+  return;
+}
+function kirsten() {
+  sex=1;
+  var height = document.getElementById("height");
+  var age = document.getElementById("age");
+  height.value = 172;
+  age.value = 32;
+  return;
+}
+function calc() {
+  var bf = document.getElementById("bodyfat");
+  var lbm = document.getElementById("leanbodymass");
+  var whtr = document.getElementById("whtr");
+  var bmr = document.getElementById("bmr");
+  var waw = document.getElementById("waw");
+  var wawa = document.getElementById("wawa");
+  var waist = document.getElementById("waist");
+  var height = document.getElementById("height");
+  var weight = document.getElementById("weight");
+  var age = document.getElementById("age");
+  var waistv = (waist.value/2.54);
+  var weightv = (weight.value/0.453592);
+  var heightv = (height.value/2.54);
+  var agev = (age.value);
+  
+  if (sex=="0") {
+    var up1 = ((4.15*waistv)-98.42);
+    var up2 = (0.082*weightv);
+    var va = ((100*(up1-up2))/weightv);
+    whtr.value=(waistv/heightv);
+    bf.value=(va);
+    lbm.value=(weight.value*(1-(va/100)));
+    bmr.value=(13.75*weight.value+5.003*height.value-6.775*agev+66.5);
+    waw.value=(((heightv*heightv*heightv)/1906)*0.453592);
+    wawa.value=((heightv*0.4584)*2.54);
+  }
+ else {
+    var up1 = ((4.15*waistv)-76.76);
+    var up2 = (0.082*weightv);
+    var va = ((100*(up1-up2))/weightv);
+    whtr.value=(waistv/heightv);
+    bf.value=(va);
+   lbm.value=(weight.value*(1-(va/100)));
+    bmr.value=(9.563*weight.value+1.850*height.value-4.676*agev+655.1);
+   waw.value=0;
+   wawa.value=0;
+  }
+}
+function round25(x)
+{
+    return (x % 2.5) >= 1.25 ? parseInt(x / 2.5) * 2.5 + 2.5 : parseInt(x / 2.5) * 2.5;
+}
+function oneRepMax() {
+  var inReps= document.getElementById("inReps");
+  var inWeightLifted= document.getElementById("inWeightLifted");
+  var j;
+  var onerm;
+for (j = 1; j < 25; j++) { 
+   if (inReps.value==j) {
+     onerm=(inWeightLifted.value/(1-(0.025*j)));
+   }
+}
+  var weightLiftedArray = ["Weight100","Weight95","Weight90","Weight85","Weight80","Weight75","Weight70","Weight65","Weight60","Weight55","Weight50"];
+  var repsArray =["inReps100","inReps95","inReps90","inReps85","inReps80","inReps75","inReps70","inReps65","inReps60","inReps55","inReps50"];
+  
+var i;
+for (i = 0; i < weightLiftedArray.length; i++) { 
+    var wl = document.getElementById(weightLiftedArray[i]);
+    var rp = document.getElementById(repsArray[i]);
+  if (i==0) {
+    wl.value= onerm*(1-(0.05*i));
+    rp.value= 1;
+  }
+  else {
+  wl.value= onerm*(1-(0.05*i));
+  rp.value= i*2;
+  }
+  wl.value= round25(wl.value);
+}
+}
+  </script>
+</html>

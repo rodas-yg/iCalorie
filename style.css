@@ -1,0 +1,52 @@
+body{
+    background-color: #fff;
+    font-style: sans-serif;
+    overflow: auto;
+}
+@media screen and (max-width = 400px)  {
+    body{
+        font-size: larger;
+    }
+}
+.main{
+    margin-bottom: 200px;
+    
+}
+footer{
+
+    background-color: black;
+    width: 100%;
+    height: 100px;
+
+}
+footer p{
+    text-align: center;
+    margin-top: 60px;
+    color: white;
+}
+.list{
+    text-align: center;
+    margin-top: 30px;
+}
+.list ul li{
+    padding-bottom: 20px;
+    font-size: 30px;
+}
+.list ul li:hover{
+    font-size: 35px;
+    transition: 0.5s;
+    color: aqua;
+}
+.mainbody{
+   padding: 30px;
+
+}
+#outer{width:90%;max-width:600px;background:#fff;margin:0 auto}
+#cover{border:2px solid #111;padding:15px 0}
+.main{table-layout:fixed;width:94%;border:0;text-align:left;border-collapse:collapse;margin:0 auto}
+.main td{padding:0 8px;vertical-align:middle;border:0}
+.main input{width:60%;border:1px solid #ccc;margin:2px 0;padding:0 2%;height:22px;text-align:left}.ac{text-align:center}.b{font-weight:bold}
+.main select{width:60%;border:1px solid #ccc;margin:2px 0;background:#fff;height:22px}.w50{width:50%}.main button{width:100%;font-weight:bold;margin:3px 0}.w60{width:60%}.w40{width:40%}
+.bdfat2{
+    align-items: left;
+}

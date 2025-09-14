@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Calorie Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="bmi.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 5.2.4, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#32d2ea">
+    <meta property="og:title" content="bmi">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-palette-2-light-1 u-header" id="sec-560a"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h3 class="u-text u-text-default u-text-1">iCalorie</h3>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" data-responsive-from="MD">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
+            <a class="u-button-style u-custom-active-border-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-30 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-2-base u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-2-base u-text-grey-90 u-text-hover-grey-90" href="index.html" style="padding: 10px 0px;">Home</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-2-base u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-2-base u-text-grey-90 u-text-hover-grey-90" href="bmi.html" style="padding: 10px 0px;">Compute my BMI</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-2-base u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-2-base u-text-grey-90 u-text-hover-grey-90" href="calculator.html" style="padding: 10px 0px;">Calorie calculator</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-2-base u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-2-base u-text-grey-90 u-text-hover-grey-90" href="tracker.html" style="padding: 10px 0px;">Calorie Tracker</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-2-base u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-2-base u-text-grey-90 u-text-hover-grey-90" href="calorie.html" style="padding: 10px 0px;">Calories in common dishes</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="bmi.html">Compute my BMI</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="calculator.html">Calorie calculator</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="tracker.html">Calorie Tracker</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="calorie.html">Calories in common dishes</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+
+
+
+
+
+
+    <section class="u-clearfix u-section-1" id="sec-ec81">
+      <div class="u-clearfix u-sheet u-sheet-1"></div>
+    </section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <div class="card card-body text-center mt-5">
+            <h1 class="heading display-5 pb-3">Calorie Calculator</h1>
+            <form id="calorie-form">
+
+              <div class="form-group row">
+                <label for="age" class="col-sm-2 col-form-label">Age</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="age" placeholder="Ages 15-80">
+                </div>
+              </div>
+
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                  <div class="col-sm-10" id="form-radio">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="male" name="customRadioInline1" class="custom-control-input" checked="checked">
+                      <label class="custom-control-label" for="male">Male</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" id="female" name="customRadioInline1" class="custom-control-input">
+                      <label class="custom-control-label" for="female">Female</label>
+                    </div>  
+                  </div>
+                </div> 
+              </fieldset> 
+
+              <div class="form-group row">
+                <label for="weight" class="col-sm-2 col-form-label">Current Weight</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="weight" placeholder="In kilograms">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="weight" class="col-sm-2 col-form-label">Target Weight</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="weight" placeholder="In kilograms">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="height" class="col-sm-2 col-form-label">Height</label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control" id="height" placeholder="In centimeters">
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <legend class="col-form-label col-sm-2 pt-0">Activity</legend>
+                <select class="custom-select col-sm-10" id="list">
+                  <option selected value="1">Sedentary (little or no exercise)</option>
+                  <option value="2">Lightly active (light exercise/sports 1-3 days/week)</option>
+                  <option value="3">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+                  <option value="4">Very active (hard exercise/sports 6-7 days a week)</option>
+                  <option value="5">Extra active (very hard exercise/sports & physical job or 2x training)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-primary btn-block">
+              </div>
+
+            </form>
+
+            <div id="loading">
+              <img src="./img/Loading.gif" alt="">
+            </div>
+
+            <div id="results" class="pt-4">
+              <h5>Total Calories</h5>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="total-calories" disabled>
+                </div>
+              </div>                       
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

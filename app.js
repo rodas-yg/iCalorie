@@ -1,4 +1,5 @@
 //Storage Controller
+import { fetchCalorieData } from "./calorieinfo.js";
 const StorageCtrl = (function () {
   // public methods
   return {
@@ -439,12 +440,68 @@ const App = (function (ItemCtrl, StorageCtrl, UICrtl) {
       loadEventListeners();
     },
   };
+
+// app.js
+
+const searchBar = document.getElementById("search-bar");
+const mealResults = document.getElementById("meal-results");
+
+// Listen for Enter key or search trigger
+searchBar.addEventListener("keypress", async (e) => {
+  if (e.key === "Enter") {
+    const query = searchBar.value.trim();
+    if (!query) return;
+
+    mealResults.innerHTML = "<p>Loading...</p>";
+    try {
+      const foods = await fetchCalorieData(query);
+      displayMealResults(foods);
+    } catch (err) {
+      mealResults.innerHTML = `<p style="color:red;">${err.message}</p>`;
+    }
+  }
+});
+
+// 🧩 Renders food results into the Add Meal tab
+function displayMealResults(foods) {
+  if (!foods || foods.length === 0) {
+    mealResults.innerHTML = "<p>No results found.</p>";
+    return;
+  }
+
+  const html = foods
+    .map(
+      (food) => `
+      <div class="food-item">
+        <h3>${food.name}</h3>
+        <p><strong>Calories:</strong> ${food.calories}</p>
+        <p><strong>Protein:</strong> ${food.protein_g} g</p>
+        <p><strong>Carbs:</strong> ${food.carbohydrates_total_g} g</p>
+        <p><strong>Fat:</strong> ${food.fat_total_g} g</p>
+        <button class="add-btn">Add to Meal</button>
+      </div>
+    `
+    )
+    .join("");
+
+  mealResults.innerHTML = html;
+
+  // Hook up "Add to Meal" buttons (optional)
+  document.querySelectorAll(".add-btn").forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      alert(`${foods[index].name} added to meal!`);
+      // You could later add logic to update your calorie DB or localStorage here
+    });
+  });
+}
+
 })(ItemCtrl, StorageCtrl, UICrtl);
 
 //Initilizing App
 App.init();
 var $=function( id ){return document.getElementById(id)};
-            function msystem(){if( $('msf').value=='metric'){ $('thf').innerHTML=' (Cms)'; $('tneck').innerHTML=' (Cms)'; $('twaist').innerHTML=' (Cms)'; $('thips').innerHTML=' (Cms)'}else{ $('thf').innerHTML=' (inches)'; $('tneck').innerHTML=' (inches)'; $('twaist').innerHTML=' (inches)'; $('thips').innerHTML=' (inches)'}}
+            function msystem(){if( $('msf').value=='metric')
+              { $('thf').innerHTML=' (Cms)'; $('tneck').innerHTML=' (Cms)'; $('twaist').innerHTML=' (Cms)'; $('thips').innerHTML=' (Cms)'}else{ $('thf').innerHTML=' (inches)'; $('tneck').innerHTML=' (inches)'; $('twaist').innerHTML=' (inches)'; $('thips').innerHTML=' (inches)'}}
             function bfat (){var ms= $('msf').value;var sex= $('sf').value;var height= $('hf').value;var neck= $('neck').value;var waist= $('waist').value;var hips= $('hips').value;var ibf;var bfc;if(height==null || height==0 || neck==null || neck==0 || waist==null || waist==0){ $('bf').value='Pl. enter data.'}else{ $('bf').value=''}
             if(ms=='metric'&&sex=='m'&&height>0&&waist>0&&neck> 0){ibf=Math.round((86.010*(Math.log(waist*1-neck*1)/Math.log(10))-70.041*(Math.log(height)/Math.log(10))+30.30*1)*100)/100;if(ibf<=5){bfc='Essential'}else if(ibf>5&&ibf<=17){bfc='Fit'}else if(ibf>17&&ibf<=25){bfc='Acceptable'}else if(ibf>25 ) {bfc='Obese'} $('bf').value=ibf+' % '; $('nbf').value=bfc}
             else if(ms=='us'&&sex=='m'&&height>0&&waist>0&&neck> 0){ibf= Math.round((86.010*(Math.log(waist*1-neck*1)/Math.log(10))-70.041*(Math.log(height)/Math.log(10))+36.76*1)*100)/100;if(ibf<=5){bfc='Essential'}else if(ibf>5&&ibf<=17){bfc='Fit'}else if(ibf>17&&ibf<=25){bfc='Acceptable'}else if(ibf>25 ) {bfc='Obese'} $('bf').value=ibf+' % '; $('nbf').value=bfc}
